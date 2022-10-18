@@ -1,4 +1,4 @@
-# Workshop Interficie Q3 2022: Pruebas de Maquetación 1 ROBOTS
+# Workshop Interficie Q3 2022: Pruebas de Maquetación   
 
 ## Descripción Global de las Pruebas de Maquetación
 
@@ -6,6 +6,11 @@ El objetivo de esta prueba es la maquetación de una página sencilla para la cu
 a la página principal. El objetivo es crear una SCSS que replique la maquetación y el comportamiento ilustrados en los ejemplos. Cada una de las 
 pruebas de Maquetación se centrará en algunos aspectos concretos de la misma, y por tanto la forma de evaluar las diferentes pruebas variará ligeramente
 según la prueba.
+
+Todas las pruebas asumen lo siguiente:
+* Se evaluarán en una versión actualizada de Firefox en Linux
+* La resolución en la que se evaluarán será de 1440x1090. No se evaluará el responsiveness excepto en las pruebas que lo requieran explícitamente
+* El único archivo que se podrá modificar es la hoja de estilos: un único módulo SaSS que se importará desde el archivo principal de la aplicación
 
 ## Metodología de las pruebas
 

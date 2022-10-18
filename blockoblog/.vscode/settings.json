@@ -1,0 +1,45 @@
+{
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "files.trimFinalNewlines": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true,
+    "files.trimFinalNewlines": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "files.trimFinalNewlines": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "files.trimFinalNewlines": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "css.lint.unknownAtRules": "ignore",
+  "svg.preview.background": "editor",
+  "jest.jestCommandLine": "yarn test",
+  "jest.debugMode": true,
+  "jest.autoRun": {
+    "watch": true,
+    "onStartup": ["all-tests"],
+    "onSave": "test-src-file"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/style",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["jest"],
+  "rules": {
+    "prettier/prettier": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-non-null-assertion": "off"
+  },
+  "ignorePatterns": ["/node_modules", "/coverage", "lint-staged.config.js"],
+  "overrides": [
+    {
+      "files": "**/__tests__/**/*.test.{ts,tsx,js,jsx}",
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@testing-library/no-node-access": "off"
+      }
+    }
+  ],
+  "env": {
+    "jest/globals": true
+  }
+}
