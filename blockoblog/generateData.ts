@@ -39,7 +39,7 @@ const generateData = (n: number): Data => {
         return {
           ...person,
           type: "customer",
-          address: `${faker.address.streetAddress()}, ${faker.address.city}`,
+          address: `${faker.address.streetAddress()}, ${faker.address.city()}`,
           phone: faker.phone.number(),
         } as Customer;
       } else {
