@@ -1,0 +1,35 @@
+$squareHeigth: 76px;
+$squareWidth: 72px;
+
+.rightwards {
+
+}
+
+.leftwards {
+
+}
+
+.downwards {
+  border: 1px solid black;
+}
+
+.quesitoSquare {
+  width: calc($squareWidth + 10px);
+  height: $squareHeigth;
+  border: 5px solid black;
+  background-color: lightblue;
+}
+
+.sideSquare {
+  width: calc($squareWidth/2);
+  height: calc($squareHeigth - 0px);
+  border: 1px solid black;
+  background-color: lightpink;
+}
+
+.downSquare {
+  width: calc($squareWidth - 0px);
+  height: calc($squareHeigth - 25px);
+  border: 1px solid black;
+  background-color: lightgreen;
+}
