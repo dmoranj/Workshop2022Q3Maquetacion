@@ -32,7 +32,7 @@ $secondary-color: #e9cfc3;
 .logoTrivial0 {
   position: fixed;
 
-  left: 20vw;
+  left: calc(50vw - 560px);
   top: 10vh;
 
   transform: rotate(315deg);
@@ -45,7 +45,7 @@ $secondary-color: #e9cfc3;
 .logoTrivial1 {
   position: fixed;
 
-  right: 27vw;
+  right: calc(50vw - 440px);
   top: 10vh;
 
   transform: rotate(45deg);
@@ -58,7 +58,7 @@ $secondary-color: #e9cfc3;
 .logoTrivial2 {
   position: fixed;
 
-  right: 27vw;
+  right: calc(50vw - 440px);
   bottom: 10vh;
 
   transform: rotate(135deg);
@@ -71,7 +71,7 @@ $secondary-color: #e9cfc3;
 .logoTrivial3 {
   position: fixed;
 
-  left: 20vw;
+  left: calc(50vw - 560px);
   bottom: 10vh;
 
   transform: rotate(225deg);
