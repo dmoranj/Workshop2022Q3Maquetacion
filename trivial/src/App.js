@@ -7,7 +7,7 @@ const TrivialSquare = ({number, reverse}) => {
   const dx = Math.cos(rads);
 
   return <div  style={{
-    transform: `translateY(${dy*400}px) translateX(${dx*30}px) rotate(${degrees}deg) `,
+    transform: `translateY(${dy*360}px) translateX(${dx*50}px) rotate(${degrees}deg) `,
   }} className={styles.sideSquare}>
   </div>
 }
@@ -25,14 +25,14 @@ const TrivialSection = ({id}) => {
     </div>
 
     <div className={styles.downwards}>
-      {[...Array(6)].map(x => (<div className={styles.downSquare}></div>))}
+      {[...Array(7)].map(x => (<div className={styles.downSquare}></div>))}
     </div>
   </div>
 }
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.root}>
       {[...Array(6)].map((x, i)=> (<TrivialSection id={i+1}/>))}
     </div>
   );

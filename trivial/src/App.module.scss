@@ -1,9 +1,11 @@
 @use "sass:map";
 
-$squareHeigth: 76px;
-$squareWidth: 72px;
+$squareHeigth: 55px;
+$squareWidth: 55px;
 
-$square-colors: (1: rgb(159, 221, 232), 2: rgb(245, 126, 130), 3: rgb(128, 214, 128), 4: rgb(239, 239, 143), 5: rgb(253, 205, 250), 6: rgb(161, 135, 136),);
+$square-colors: (1: #5ac1c3, 2: #f37a34, 3: #4dac4a, 4: #f3d83d, 5: #fd84b2, 6: #a66b3a, 7: #4dac4a);
+$background-color: #33586a;
+$secondary-color: #e9cfc3;
 
 @mixin alternate-row($base, $multiplier, $elements) {
   @for $i from 1 through $elements {
@@ -21,57 +23,57 @@ $square-colors: (1: rgb(159, 221, 232), 2: rgb(245, 126, 130), 3: rgb(128, 214, 
   }
 }
 
-@for $i from 1 through 6 {
+@for $i from 1 through 7 {
   .color#{$i} {
     background-color: map.get($square-colors, $i);
   }
 }
 
+.root {
+  position:fixed;
+  width: 100%;
+  height: 100%; 
+  background-color: $background-color;
+}
+
+$lateralDisplacement: 345px;
+$verticalDisplacement: 200px;
+$fullVerticalDisplacement: 400px;
+
 .trivialSection1 {
-  transform: translateX(-250px) translateY(-400px) rotate(0deg)
+  transform: translateX(0px) translateY(-$fullVerticalDisplacement) rotate(0deg)
 }
 .trivialSection2 {
-  transform: translateX(195px) translateY(-145px) rotate(60deg)
+  transform: translateX($lateralDisplacement) translateY(-$verticalDisplacement) rotate(60deg)
 }
 .trivialSection3 {
-  transform: translateX(195px) translateY(365px) rotate(120deg)
+  transform: translateX($lateralDisplacement) translateY($verticalDisplacement) rotate(120deg)
 }
 .trivialSection4 {
-  transform: translateX(-250px) translateY(620px) rotate(180deg)
+  transform: translateX(0px) translateY($fullVerticalDisplacement) rotate(180deg)
 }
 .trivialSection5 {
-  transform: translateX(-695px) translateY(365px) rotate(240deg)
+  transform: translateX(-$lateralDisplacement) translateY($verticalDisplacement) rotate(240deg)
 }
 .trivialSection6 {
-  transform: translateX(-695px) translateY(-145px) rotate(300deg)
-}
-
-
-.axis {
-  position: absolute;
-  left: 900px;
-  top: 400px;
-  
-  background-color: antiquewhite;
-  height: 10px;
-  width: 10px;
+  transform: translateX(-$lateralDisplacement) translateY(-$verticalDisplacement) rotate(300deg)
 }
 
 .sector {
   position: absolute;
   transform-origin: center 0px 0px;
-  left: 900px;
-  top: 400px;
+  left: calc(50vw - 4 * $squareWidth);
+  top: 50vh;
 }
 
 .upper {
   display: flex;
-
 }
 
 .rightwards {
   display: flex;
   align-items: center;
+  gap: 5px;
   @include alternate-colors();
 }
 
@@ -79,6 +81,7 @@ $square-colors: (1: rgb(159, 221, 232), 2: rgb(245, 126, 130), 3: rgb(128, 214, 
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
+  gap: 5px;
 
   @include alternate-colors(-1);
 }
@@ -87,15 +90,18 @@ $square-colors: (1: rgb(159, 221, 232), 2: rgb(245, 126, 130), 3: rgb(128, 214, 
   display: flex;
   flex-direction: column;
   align-items: center;  
+  gap: 13px;
 
-  @include alternate-colors(1, 6);
+  @include alternate-colors(1, 7);
 }
 
 .quesitoSquare {
   width: calc($squareWidth + 10px);
   height: $squareHeigth;
-  border: solid 10px black;
+  box-shadow: inset 0 0 0 2px black, 0 0 0 2px white, 0 0 0 4px black;
   border-radius: 5px;
+  z-index: 10;
+  margin-top: -5px;
 
   &:hover {
     filter: brightness(65%);
@@ -105,7 +111,7 @@ $square-colors: (1: rgb(159, 221, 232), 2: rgb(245, 126, 130), 3: rgb(128, 214, 
 .sideSquare {
   width: calc($squareWidth/2);
   height: calc($squareHeigth - 0px);
-  border: solid 4px black;
+  box-shadow: inset 0 0 0 1px black, 0 0 0 2px white, 0 0 0 3px black;
   border-radius: 3px;
 
   &:hover {
@@ -116,8 +122,8 @@ $square-colors: (1: rgb(159, 221, 232), 2: rgb(245, 126, 130), 3: rgb(128, 214, 
 .downSquare {
   width: calc($squareWidth - 0px);
   height: calc($squareHeigth - 25px);
-  border: solid 4px black;
-
+  box-shadow: inset 0 0 0 1px black, 0 0 0 2px white, 0 0 0 3px black;
+  
   &:hover {
     filter: brightness(65%);
   }
