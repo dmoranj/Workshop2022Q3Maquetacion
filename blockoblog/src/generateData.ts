@@ -1,31 +1,11 @@
 import { faker } from "@faker-js/faker";
 import fs from "fs/promises";
 import download from "download";
-
-interface Person {
-  name: string;
-  sex: string;
-  address: string;
-  avatar: string;
-  email: string;
-}
-
-interface Candidate extends Person {
-  type: "candidate";
-  job: string;
-}
-
-interface Customer extends Person {
-  type: "customer";
-  address: string;
-  phone: string;
-}
+import type { Candidate, Customer, Data, Person } from "./typeDefinitions";
 
 const avatarFolder = "./public/avatar";
 
-type Data = (Candidate | Customer)[];
-
-const generateData = (n: number): Data => {
+const generateData = (n: number): Data[] => {
   return [...Array(n)]
     .map(() => ({
       name: `${faker.name.firstName()} ${faker.name.lastName()}`,
@@ -33,6 +13,7 @@ const generateData = (n: number): Data => {
       address: faker.address.streetAddress(),
       avatar: faker.image.avatar(),
       email: faker.internet.email(),
+      age: Number(faker.random.numeric(2)),
     }))
     .map((person) => {
       if (Math.random() > 0.5) {
@@ -41,18 +22,24 @@ const generateData = (n: number): Data => {
           type: "customer",
           address: `${faker.address.streetAddress()}, ${faker.address.city()}`,
           phone: faker.phone.number(),
+          creditCardNumber: faker.finance.creditCardNumber(),
+          creditCardCCV: faker.finance.creditCardCVV(),
+          creditCardIssuer: faker.finance.creditCardIssuer(),
+          bio: faker.lorem.paragraph(3),
         } as Customer;
       } else {
         return {
           ...person,
           type: "candidate",
           job: faker.name.jobType(),
+          experience: Number(faker.random.numeric(1)),
+          intro: faker.lorem.paragraph(1),
         } as Candidate;
       }
     });
 };
 
-const saveImages = async (data: Data) => {
+const saveImages = async (data: Data[]) => {
   data.map(async (element) => {
     const { avatar, ...rest } = element;
 
@@ -73,7 +60,7 @@ const saveFile = async (data: Person[]) => {
 };
 
 const generateAndSaveData = async (n: number) => {
-  const data: Data = generateData(n);
+  const data: Data[] = generateData(n);
 
   saveImages(data);
   saveFile(data);
@@ -81,4 +68,4 @@ const generateAndSaveData = async (n: number) => {
   await fs.writeFile("./src/data/fakeData.json", JSON.stringify(data, null, 2));
 };
 
-generateAndSaveData(10);
+generateAndSaveData(25);

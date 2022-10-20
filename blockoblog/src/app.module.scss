@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+// Variable definitions
+//------------------------------------------------------
+$title-height: 130px;
+
+// Global modifications
+//------------------------------------------------------
+div {
+  box-sizing: border-box;
+}
+
+// Shared attributes
+//------------------------------------------------------
+%attribute-shared {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  & .label {
+    font-weight: 700;
+  }
+}
+
+%stat-shared {
+  padding: 10px;
+
+  & .label {
+    font-weight: bolder;
+  }
+
+  & .value {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 32px;
+  }
+}
+
+%highlighted-shared {
+  justify-self: center;
+  align-self: center;
+  font-size: 18px;
+}
+
+// Classes
+//------------------------------------------------------
+.root {
+  font-family: Raleway;
+}
+
+.title {
+  height: $title-height;
+  width: 100%;
+  text-align: center;
+  font-size: 96px;
+  border-bottom: 5px solid black;
+  top: 0px;
+}
+
+.content {
+  display: flex;
+}
+
+.stats {
+  width: 200px;
+  height: fit-content;
+  padding: 100px 10px 100px 20px;
+  position: sticky;
+  right: 0px;
+  top: 0px;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom-left-radius: 20px;
+}
+
+.people {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+  padding: 60px 20px 100px 20px;
+}
+
+.person {
+  border-radius: 5px;
+  box-shadow: 3px 4px 10px 0px;
+
+  &:last-child {
+    margin-right: auto;
+  }
+}
+
+.candidate {
+  width: 350px;
+  height: 400px;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: [first] 40% [line1] 30% [line2] 30% [end];
+  grid-template-rows: [start] 12% [name] 12% [stats] auto [intro] 12% [contact1] 12% [contact2] 12% [end];
+
+  & .name {
+    grid-column: first / end;
+    grid-row: start / name;
+    justify-self: center;
+    align-self: center;
+    font-size: 30px;
+    padding: 0px 20px 2px 20px;
+    border-bottom: 1px solid black;
+  }
+
+  & .job {
+    grid-column: first / line1;
+    grid-row: name / stats;
+
+    @extend %highlighted-shared;
+  }
+
+  & .sex {
+    grid-column: line1 / line2;
+    grid-row: name / stats;
+    @extend %highlighted-shared;
+  }
+
+  & .age {
+    grid-column: line2 / end;
+    grid-row: name / stats;
+    @extend %highlighted-shared;
+  }
+
+  & .intro {
+    grid-column: first / line2;
+    grid-row: stats / intro;
+    padding: 9px;
+    background-color: rgb(236, 239, 240);
+    overflow-y: hidden;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  & .experience {
+    grid-column: line2 / end;
+    grid-row: stats / intro;
+    justify-self: center;
+    align-self: center;
+    font-size: 56px;
+  }
+
+  & .avatar {
+    grid-column: first / line1;
+    grid-row: intro / end;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  & .email {
+    grid-column: line1 / end;
+    grid-row: contact1 / contact2;
+    justify-self: center;
+    align-self: center;
+  }
+
+  & .address {
+    grid-column: line1 / end;
+    grid-row: contact2 / end;
+    justify-self: center;
+    align-self: center;
+  }
+}
+
+.customer {
+  width: 500px;
+  height: 400px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: [first] 33% [line1] 33% [line2] auto [end];
+  grid-template-rows: [start] 12% [attr1] 12% [attr2] 12% [attr3] 12% [attr4] 25% [stat1] auto [end];
+
+  & .name {
+    grid-column: first / line2;
+    grid-row: start / attr1;
+
+    @extend %attribute-shared;
+  }
+
+  & .email {
+    grid-column: first / line2;
+    grid-row: attr1 / attr2;
+    @extend %attribute-shared;
+  }
+
+  & .phone {
+    grid-column: first / line2;
+    grid-row: attr2 / attr3;
+    @extend %attribute-shared;
+  }
+
+  & .address {
+    grid-column: first / line2;
+    grid-row: attr3 / attr4;
+    width: 100%;
+    text-align: center;
+
+    @extend %attribute-shared;
+  }
+
+  & .sex {
+    grid-column: first / line1;
+    grid-row: attr4 / stat1;
+
+    @extend %stat-shared;
+  }
+
+  & .age {
+    grid-column: first / line1;
+    grid-row: stat1 / stat2;
+
+    @extend %stat-shared;
+  }
+
+  & .bio {
+    grid-column: line1 / end;
+    grid-row: attr4 / end;
+    overflow-y: hidden;
+    padding: 10px;
+  }
+}
+
+.avatar {
+  grid-column: line2 / end;
+  grid-row: start / attr4;
+  padding: 10px;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid black;
+  }
+}
