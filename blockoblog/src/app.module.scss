@@ -72,6 +72,19 @@ div {
   border-bottom: 1px solid black;
   border-left: 1px solid black;
   border-bottom-left-radius: 20px;
+
+  & .label {
+    font-size: 20px;
+    margin: 20px 0 20px 0;
+  }
+  & .value {
+    font-size: 40px;
+    text-align: center;
+    padding: 15px;
+    margin: 0 30px 5px 30px;
+    border: 2px solid grey;
+    border-radius: 50%;
+  }
 }
 
 .people {

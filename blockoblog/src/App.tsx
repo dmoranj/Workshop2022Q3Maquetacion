@@ -101,21 +101,23 @@ const Stats = () => {
 
   return (
     <div className={styles.stats}>
-      <div>
-        <div>Persons:</div>
-        <div>{people.length}</div>
+      <div className={styles.stat}>
+        <div className={styles.label}>Persons</div>
+        <div className={styles.value}>{people.length}</div>
       </div>
-      <div>
-        <div>Customers:</div>
-        <div>{customers}</div>
+      <div className={styles.stat}>
+        <div className={styles.label}>Customers</div>
+        <div className={styles.value}>{customers}</div>
       </div>
-      <div>
-        <div>Candidates:</div>
-        <div>{candidates}</div>
+      <div className={styles.stat}>
+        <div className={styles.label}>Candidates</div>
+        <div className={styles.value}>{candidates}</div>
       </div>
-      <div>
-        <div>Mean age:</div>
-        <div>{Math.round(totalAge / people.length)}</div>
+      <div className={styles.stat}>
+        <div className={styles.label}>Mean age</div>
+        <div className={styles.value}>
+          {Math.round(totalAge / people.length)}
+        </div>
       </div>
     </div>
   );
