@@ -3,7 +3,7 @@ import styles from './App.module.scss'
 
 import { useState } from 'react'
 
-const robots = [
+const robotData = [
   {
     id: 1,
     name: "Cool robot eating steak",
@@ -42,10 +42,26 @@ const robots = [
   },
 ]
 
-export const Paintings = () => {
+export const Paintings = ({buy}) => {
+  const [robots, setRobots] = useState(robotData);
+
+  const buyPainting = (changedRobot) => () => {
+    buy(changedRobot.name);
+    setRobots(robots.map(robot => {
+      if (robot.id === changedRobot.id) {
+        return {
+          ...robot,
+          bought: true
+        }
+      } else {
+        return robot;
+      }
+    }))
+  }
+
   return <div className={styles.paintings}>
     {robots.map((robot, i) => <>
-      <div className={styles.painting}>
+      <div className={`${styles.painting} ${robot.bought?styles.paintingBought:""}`}  onClick={buyPainting(robot)}>
         <div className={styles.paintingImageContainer}>
           <img className={styles.paintingImage} src={`./images/${robot.id}.png`} alt={robot.name}/>
         </div>
@@ -65,9 +81,8 @@ export const Paintings = () => {
   </div>
 }
 
-export const Visor = () => {
+export const Visor = ({cart}) => {
   const [showVisor, setShowVisor] = useState(false);
-
 
   return <div className={`${styles.visor}`}>
     <div className={styles.visorBar}>
@@ -78,8 +93,7 @@ export const Visor = () => {
     <div className={`${styles.visorScreen}  ${showVisor?"":styles.visorHidden}`}>
       <div className={styles.visorExplanation}>Your cart has currently the following elements:</div>
       <ul className={styles.visorElements}>
-        <li>Robot hanging out with his friend Joe</li>
-        <li>Micro-robots looking for his lost friend</li>
+        {cart.map(element => <li>{element}</li>)}
       </ul>
     </div>
   </div>
@@ -90,10 +104,16 @@ export const Carrito = () => {
 }
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  const addElement = (element) => {
+    setCart([...cart, element]);
+  }
+
   return (
     <div className={styles.root}>
-      <Visor />
-      <Paintings />
+      <Visor cart={cart}/>
+      <Paintings buy={addElement} />
     </div>
   );
 }
