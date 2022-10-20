@@ -1,4 +1,4 @@
-import styles from './App.module.scss';
+import styles from './Blank.module.scss';
 
 const TrivialSquare = ({number, reverse}) => {
   const degrees = (number+1) * (reverse?-7:7);
