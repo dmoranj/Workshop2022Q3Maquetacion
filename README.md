@@ -36,29 +36,25 @@ Para la realización de las pruebas:
 4. Las pruebas se evaluarán manualmente por el equipo del workshop, valorándolas según los criterios de entrega de cada una
 5. Una vez valoradas, se pondrán en común las valoraciones, y se explicarán los puntos en los que la gente haya fallado más
 
+## Evaluación general de las pruebas
+
+Cada una de las pruebas se puntuará de 0 a 10 basándose en los criterios establecidos en cada prueba. Las puntuaciones total se obtendrá haciendo la media de las tres pruebas.
+
+Todas las pruebas contienen dos criterios comunes:
+
+- **Limpieza del código**: este criterio evaluará el uso de las herramientas que proporciona SaSS para evitar la duplicación de código, constantes, etc, así como la sencillez de las soluciones propuestas.
+- **Maquetación general de la página**: en este punto se evaluará hasta qué punto la hoja de estilos proporcionada reproduce fielmente a nivel visual las ayudas visuales que se hayan proporcionado para la prueba (en este punto no se mirarán las distancias exactas en pixels, o colores concretos, sino la apariencia general, i.e.: que estén todos los elementos, colocados donde deben estar, etc...)
+
 ## Prueba 1: Blockblog
-
-## Generación de datos
-
-El proyecto contiene una herramienta de generación de datos que se puede ejecutar con el siguiente comando:
-
-```
-yarn generate
-```
-
-No se recomiendo generar muchos datos ni muy frecuentemente, puesto que el servidor de imágenes aleatorias puede restringir el acceso
-ante un número elevado de peticiones. Se proveerá un ZIP con imágenes predescargadas para evitar el ruido que pueda causar la generación
-de datos.
 
 ### Criterios de Evaluación
 
 En esta prueba se evaluarán los siguientes objetivos:
 
-- Uso de estructuras con Grid
-- Uso de estructuras con FlexBox
-- Animaciones
-- Limpieza del código
-- Maquetación general de la página
+- 3p - Posicionamiento y estructura general de la página
+- 5p - Estructura de los elementos de las tarjetas
+- 1p - Limpieza del código
+- 1p - Maquetación general de la página
 
 ## Prueba 2: ROBOTS
 

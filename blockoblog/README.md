@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# First Challenge: Posicionamiento y maquetación básica de bloques
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introducción
 
-## Available Scripts
+El objetivo de este reto es trabajar el posicionamiento de elementos en pantalla, de forma absoluta y los unos respecto a los otros. La página a maquetar consiste de una serie de tarjetas que contienen dos tipos distintos de usuarios del sistema: clientes y candidatos. Cada una de las tarjetas tiene su propio diseño, que habrá que implementar, aparte del diseño básico de la página.
 
-In the project directory, you can run:
+En esta página se valorará que el diseño sea mínimamente adaptativo, i.e.: se espera que funcione en dispositivos con anchos de página de 800px en adelante.
 
-### `npm start`
+Como en el resto de retos, se proporcionará un archivo SCSS básico con los nombres de las clases generales, con bordes negros y colores de fondo para facilitar su reconocimiento en pantalla.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Descripción
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Las siguientes pantallas muestran la aplicación ya maquetada:
 
-### `npm test`
+![Apariencia general](img/AparienciaGeneral.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La pantalla se compone de tres elementos:
 
-### `npm run build`
+- Un título que ocupa la parte superior de la página
+- Una sección de estadísticas sobre los datos que ocupa la parte derecha de la misma. Esta sección es sticky, i.e.: al llegar a la parte superior de la pantalla acompaña el scroll de la misma.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Componente sticky](img/StatsSticky.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Una parte central que muestra un listado de tarjetas de dos tipos distintos. En la última fila del listado, los elementos aparecerán justificados a la izquierda.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Justificación del último elemento](img/UltimoElemento.png)
 
-### `npm run eject`
+Los textos de las tarjetas han sido generados automáticamente, y podŕian no respetar los tamaños reales; en los casos en los que el texto supere el tamaño disponible, se deberá cortar.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Los tamaños absolutos en pixels no son relevantes para la calificación, únicamente las relaciones generales entre los elementos.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Evaluación
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+En esta prueba se evaluarán los siguientes objetivos:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- 3p - Posicionamiento y estructura general de la página
+- 5p - Estructura de los elementos de las tarjetas
+- 1p - Limpieza del código
+- 1p - Maquetación general de la página
 
-## Learn More
+## Generación de datos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_Esta parte de la documentación es opcional y se proporciona para referencias futuras_
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+El proyecto contiene una herramienta de generación de datos que se puede ejecutar con el siguiente comando:
 
-### Code Splitting
+```
+yarn generate
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+No se recomiendo generar muchos datos ni muy frecuentemente, puesto que el servidor de imágenes aleatorias puede restringir el acceso
+ante un número elevado de peticiones. Se proveerá un ZIP con imágenes predescargadas para evitar el ruido que pueda causar la generación
+de datos.
