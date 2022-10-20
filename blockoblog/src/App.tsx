@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./app.module.scss";
+//import styles from "./app.module.scss";
+import styles from "./blank.module.scss";
 import data from "./data/fakeData.json";
 import type { Candidate, Customer } from "./typeDefinitions";
 import type { Data } from "./typeDefinitions";

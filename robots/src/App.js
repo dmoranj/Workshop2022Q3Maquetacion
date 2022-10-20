@@ -1,5 +1,5 @@
-import styles from './App.module.scss'
-//import styles from './blank.module.scss'
+//import styles from './App.module.scss'
+import styles from './blank.module.scss'
 
 import { useState } from 'react'
 
