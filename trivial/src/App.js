@@ -33,7 +33,10 @@ const TrivialSection = ({id}) => {
 function App() {
   return (
     <div className={styles.root}>
+      <div className={styles.board}>
+      </div>
       {[...Array(6)].map((x, i)=> (<TrivialSection id={i+1}/>))}
+      {[...Array(4)].map((x, i) => (<div className={styles[`logoTrivial${i}`]}><img src="logoTrivial.png" alt="Logo trivial"/></div>))}
     </div>
   );
 }
