@@ -1,14 +1,9 @@
-import styles from './Blank.module.scss';
+import styles from './App.module.scss';
 
 const TrivialSquare = ({number, reverse}) => {
-  const degrees = (number+1) * (reverse?-7:7);
-  const rads = Math.abs(90 - degrees) * 2 * Math.PI/360
-  const dy = 1 - Math.sin(rads);
-  const dx = Math.cos(rads);
+  const direction = reverse? "left": "right";
 
-  return <div  style={{
-    transform: `translateY(${dy*360}px) translateX(${dx*50}px) rotate(${degrees}deg) `,
-  }} className={styles.sideSquare}>
+  return <div  className={`${styles.sideSquare} ${styles["sideSquare" + (number+1) + direction]}`}>
   </div>
 }
 
