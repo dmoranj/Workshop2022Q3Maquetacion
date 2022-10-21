@@ -1,6 +1,9 @@
 @use "sass:map";
 @use "sass:math";
 
+
+// Variable declaration
+//---------------------------------------------------------------------
 $squareHeigth: 55px;
 $squareWidth: 55px;
 
@@ -8,6 +11,18 @@ $square-colors: (1: #5ac1c3, 2: #f37a34, 3: #4dac4a, 4: #f3d83d, 5: #fd84b2, 6: 
 $background-color: #33586a;
 $secondary-color: #e9cfc3;
 
+$directions: "left", "right";
+$degreeInterval: 5.6;
+
+$boardWidth: 1000px;
+$boardHeight: 900px;
+
+$lateralDisplacement: 345px;
+$verticalDisplacement: 200px;
+$fullVerticalDisplacement: 400px;
+
+// Mixins
+//---------------------------------------------------------------------
 @mixin alternate-row($base, $multiplier, $elements) {
   @for $i from 1 through $elements {
     div:nth-child(#{$i}) {
@@ -24,15 +39,27 @@ $secondary-color: #e9cfc3;
   }
 }
 
+@mixin position-logo($dx, $dy, $degrees) {
+  position: fixed;
+
+  left: calc(50vw - $dx);
+  top: calc(50vh - $dy);
+
+  transform: rotate($degrees);
+
+  & img {
+    width: 250px;
+  }
+}
+
+// Generated classes
+//----------------------------------------------------------------------------
 @for $i from 1 through 7 {
   .color#{$i} {
     background-color: map.get($square-colors, $i);
   }
 }
 
-$directions: "left", "right";
-
-$degreeInterval: 5.6;
 
 @each $direction in $directions {
   @for $i from 1 through 4 {
@@ -57,57 +84,22 @@ $degreeInterval: 5.6;
   }  
 } 
 
-
+// Classes
+//----------------------------------------------------------------------------------
 .logoTrivial0 {
-  position: fixed;
-
-  left: calc(50vw - 560px);
-  top: 10vh;
-
-  transform: rotate(315deg);
-
-  & img {
-    width: 250px;
-  }
+  @include position-logo(580px, 380px, 315deg);
 }
 
 .logoTrivial1 {
-  position: fixed;
-
-  right: calc(50vw - 440px);
-  top: 10vh;
-
-  transform: rotate(45deg);
-
-  & img {
-    width: 250px;
-  }
+  @include position-logo(-170px, 380px, 45deg);
 }
 
 .logoTrivial2 {
-  position: fixed;
-
-  right: calc(50vw - 440px);
-  bottom: 10vh;
-
-  transform: rotate(135deg);
-
-  & img {
-    width: 250px;
-  }
+  @include position-logo(580px, -270px, 225deg);
 }
 
 .logoTrivial3 {
-  position: fixed;
-
-  left: calc(50vw - 560px);
-  bottom: 10vh;
-
-  transform: rotate(225deg);
-
-  & img {
-    width: 250px;
-  }
+  @include position-logo(-170px, -270px, 135deg);
 }
 
 .root {
@@ -116,9 +108,6 @@ $degreeInterval: 5.6;
   height: 100%; 
   background-color: $background-color;
 }
-
-$boardWidth: 1000px;
-$boardHeight: 900px;
 
 .board {
   position: fixed;
@@ -129,9 +118,6 @@ $boardHeight: 900px;
   box-shadow: inset 0 0 0 5px #dcc002, 0 0 0 5px $background-color, 0 0 0 8px #dcc002, 0 0 0 15px $background-color, -2px -2px 15px 15px #000000AA;
 }
 
-$lateralDisplacement: 345px;
-$verticalDisplacement: 200px;
-$fullVerticalDisplacement: 400px;
 
 .trivialSection1 {
   transform: translateX(0px) translateY(-$fullVerticalDisplacement) rotate(0deg)
