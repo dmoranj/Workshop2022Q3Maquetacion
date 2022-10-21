@@ -54,13 +54,14 @@ $fullVerticalDisplacement: 400px;
 
 // Generated classes
 //----------------------------------------------------------------------------
+// Generación de los colores para alternar
 @for $i from 1 through 7 {
   .color#{$i} {
     background-color: map.get($square-colors, $i);
   }
 }
 
-
+// Generación de las rotaciones de casillas (cada casilla estará rotada según su posición con respecto al centro del sector)
 @each $direction in $directions {
   @for $i from 1 through 4 {
     $degrees: 0;
@@ -86,6 +87,8 @@ $fullVerticalDisplacement: 400px;
 
 // Classes
 //----------------------------------------------------------------------------------
+
+// Posicionamiento de los logos
 .logoTrivial0 {
   @include position-logo(580px, 380px, 315deg);
 }
@@ -109,6 +112,7 @@ $fullVerticalDisplacement: 400px;
   background-color: $background-color;
 }
 
+// Posicionamiento del tablero
 .board {
   position: fixed;
   top: calc(50vh - $boardHeight/2);
@@ -118,6 +122,13 @@ $fullVerticalDisplacement: 400px;
   box-shadow: inset 0 0 0 5px #dcc002, 0 0 0 5px $background-color, 0 0 0 8px #dcc002, 0 0 0 15px $background-color, -2px -2px 15px 15px #000000AA;
 }
 
+// Posicionamiento inicial y rotación global de las secciones
+.sector {
+  position: absolute;
+  transform-origin: center 0px 0px;
+  left: calc(50vw - 4 * $squareWidth);
+  top: 50vh;
+}
 
 .trivialSection1 {
   transform: translateX(0px) translateY(-$fullVerticalDisplacement) rotate(0deg)
@@ -138,13 +149,7 @@ $fullVerticalDisplacement: 400px;
   transform: translateX(-$lateralDisplacement) translateY(-$verticalDisplacement) rotate(300deg)
 }
 
-.sector {
-  position: absolute;
-  transform-origin: center 0px 0px;
-  left: calc(50vw - 4 * $squareWidth);
-  top: 50vh;
-}
-
+// Posicionamiento de las piezas dentro de la sección
 .upper {
   display: flex;
 }
@@ -174,6 +179,7 @@ $fullVerticalDisplacement: 400px;
   @include alternate-colors(1, 7);
 }
 
+// Definición de la forma de los quesitos
 .quesitoSquare {
   width: calc($squareWidth + 10px);
   height: $squareHeigth;
